@@ -84,15 +84,15 @@ export default function TaskBoard() {
         <div className="flex items-center gap-3">
           <Link
             to={`/projects/${projectId}`}
-            className="text-gray-400 hover:text-gray-600 transition-colors"
+            className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
           >
             <ArrowLeftIcon className="h-5 w-5" />
           </Link>
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
               {project?.name || 'Task Board'}
             </h1>
-            <p className="text-sm text-gray-500">{tasks.length} tasks</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">{tasks.length} tasks</p>
           </div>
         </div>
         <button onClick={() => openModal()} className="btn-primary flex items-center gap-2">

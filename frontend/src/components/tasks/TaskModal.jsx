@@ -78,10 +78,10 @@ export default function TaskModal({
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b sticky top-0 bg-white rounded-t-xl z-10">
-          <h3 className="text-lg font-semibold">
+        <div className="flex items-center justify-between p-4 border-b dark:border-gray-700 sticky top-0 bg-white dark:bg-gray-800 rounded-t-xl z-10">
+          <h3 className="text-lg font-semibold dark:text-white">
             {isEditing ? 'Edit Task' : 'Create Task'}
           </h3>
           <div className="flex items-center gap-2">
@@ -103,7 +103,7 @@ export default function TaskModal({
         <form onSubmit={handleSubmit} className="p-4 space-y-4">
           {/* Title */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Title *
             </label>
             <input
@@ -118,7 +118,7 @@ export default function TaskModal({
 
           {/* Description */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Description
             </label>
             <textarea
@@ -133,7 +133,7 @@ export default function TaskModal({
           {/* Row: Assignee + Priority */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Assign To
               </label>
               <select
@@ -154,7 +154,7 @@ export default function TaskModal({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Priority
               </label>
               <select
@@ -172,7 +172,7 @@ export default function TaskModal({
           {/* Row: Status + Due Date */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Status
               </label>
               <select
@@ -187,7 +187,7 @@ export default function TaskModal({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Due Date
               </label>
               <input
@@ -212,13 +212,13 @@ export default function TaskModal({
 
         {/* Comments & Activity (only for existing tasks) */}
         {isEditing && (
-          <div className="p-4 border-t space-y-6">
+          <div className="p-4 border-t dark:border-gray-700 space-y-6">
             <CommentSection taskId={task._id} currentUserId={currentUserId} />
 
             {/* Activity Log */}
             {activities.length > 0 && (
               <div>
-                <h4 className="text-sm font-semibold text-gray-700 mb-3">
+                <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
                   Activity
                 </h4>
                 <div className="space-y-2 max-h-40 overflow-y-auto">
@@ -226,14 +226,14 @@ export default function TaskModal({
                     <div key={a._id} className="flex items-start gap-2 text-xs">
                       <div className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-1.5 shrink-0" />
                       <div>
-                        <span className="font-medium text-gray-700">
+                        <span className="font-medium text-gray-700 dark:text-gray-300">
                           {a.userId?.name}
                         </span>{' '}
-                        <span className="text-gray-500">{a.action}</span>
+                        <span className="text-gray-500 dark:text-gray-400">{a.action}</span>
                         {a.details && (
-                          <span className="text-gray-400"> — {a.details}</span>
+                          <span className="text-gray-400 dark:text-gray-500"> — {a.details}</span>
                         )}
-                        <span className="text-gray-400 ml-2">
+                        <span className="text-gray-400 dark:text-gray-500 ml-2">
                           {timeAgo(a.createdAt)}
                         </span>
                       </div>

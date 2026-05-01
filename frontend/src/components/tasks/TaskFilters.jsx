@@ -44,7 +44,7 @@ export default function TaskFilters({ filters, onChange, members }) {
       {(filters.status || filters.priority || filters.assignedTo) && (
         <button
           onClick={() => onChange({ status: '', priority: '', assignedTo: '' })}
-          className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+          className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium"
         >
           Clear filters
         </button>

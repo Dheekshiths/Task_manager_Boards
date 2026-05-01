@@ -11,7 +11,7 @@ const links = [
 
 export default function Sidebar() {
   return (
-    <aside className="fixed left-0 top-[57px] bottom-0 w-56 bg-white border-r border-gray-200 p-4 hidden md:block z-20">
+    <aside className="fixed left-0 top-[57px] bottom-0 w-56 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 p-4 hidden md:block z-20 transition-colors">
       <nav className="space-y-1">
         {links.map((link) => (
           <NavLink
@@ -21,8 +21,8 @@ export default function Sidebar() {
             className={({ isActive }) =>
               `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                 isActive
-                  ? 'bg-blue-50 text-blue-700'
-                  : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                  ? 'bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
+                  : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-200'
               }`
             }
           >

@@ -8,9 +8,9 @@ const priorityColors = {
 };
 
 const priorityBadge = {
-  High: 'bg-red-50 text-red-700',
-  Medium: 'bg-yellow-50 text-yellow-700',
-  Low: 'bg-green-50 text-green-700',
+  High: 'bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400',
+  Medium: 'bg-yellow-50 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400',
+  Low: 'bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400',
 };
 
 export default function TaskCard({ task, onClick, provided, isDragging }) {
@@ -22,13 +22,13 @@ export default function TaskCard({ task, onClick, provided, isDragging }) {
       {...provided.draggableProps}
       {...provided.dragHandleProps}
       onClick={onClick}
-      className={`bg-white rounded-lg border border-gray-200 border-l-4 ${
+      className={`bg-white dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 border-l-4 ${
         priorityColors[task.priority]
       } p-3 mb-2 cursor-pointer hover:shadow-md transition-shadow ${
         isDragging ? 'shadow-lg ring-2 ring-blue-300' : ''
       }`}
     >
-      <p className="text-sm font-medium text-gray-800 mb-2">{task.title}</p>
+      <p className="text-sm font-medium text-gray-800 dark:text-gray-200 mb-2">{task.title}</p>
 
       <div className="flex items-center justify-between">
         <span
@@ -44,7 +44,7 @@ export default function TaskCard({ task, onClick, provided, isDragging }) {
             <div className="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center text-white text-[10px] font-medium">
               {task.assignedTo.name?.charAt(0).toUpperCase()}
             </div>
-            <span className="text-xs text-gray-500 max-w-[80px] truncate">
+            <span className="text-xs text-gray-500 dark:text-gray-400 max-w-[80px] truncate">
               {task.assignedTo.name}
             </span>
           </div>

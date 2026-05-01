@@ -48,7 +48,7 @@ export default function CommentSection({ taskId, currentUserId }) {
 
   return (
     <div>
-      <h4 className="text-sm font-semibold text-gray-700 mb-3">Comments</h4>
+      <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">Comments</h4>
 
       <div className="space-y-3 max-h-48 overflow-y-auto mb-3">
         {comments.length === 0 && (
@@ -56,15 +56,15 @@ export default function CommentSection({ taskId, currentUserId }) {
         )}
         {comments.map((comment) => (
           <div key={comment._id} className="flex gap-2 group">
-            <div className="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center text-xs font-medium text-gray-600 shrink-0">
+            <div className="w-6 h-6 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center text-xs font-medium text-gray-600 dark:text-gray-300 shrink-0">
               {comment.userId?.name?.charAt(0).toUpperCase() || '?'}
             </div>
             <div className="flex-1">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-medium text-gray-700">
+                <span className="text-xs font-medium text-gray-700 dark:text-gray-300">
                   {comment.userId?.name}
                 </span>
-                <span className="text-xs text-gray-400">
+                <span className="text-xs text-gray-400 dark:text-gray-500">
                   {timeAgo(comment.createdAt)}
                 </span>
                 {comment.userId?._id === currentUserId && (
@@ -76,7 +76,7 @@ export default function CommentSection({ taskId, currentUserId }) {
                   </button>
                 )}
               </div>
-              <p className="text-sm text-gray-600 mt-0.5">{comment.text}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">{comment.text}</p>
             </div>
           </div>
         ))}

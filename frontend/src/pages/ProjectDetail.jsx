@@ -117,8 +117,8 @@ export default function ProjectDetail() {
           <>
             <div className="flex items-start justify-between">
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">{project.name}</h1>
-                <p className="text-gray-500 mt-1">{project.description || 'No description'}</p>
+                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{project.name}</h1>
+                <p className="text-gray-500 dark:text-gray-400 mt-1">{project.description || 'No description'}</p>
               </div>
               <div className="flex items-center gap-2">
                 <Link
@@ -155,7 +155,7 @@ export default function ProjectDetail() {
       {/* Members */}
       <div className="card">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-gray-900">
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
             Members ({project.members?.length || 0})
           </h2>
           {isAdmin && (
@@ -176,25 +176,25 @@ export default function ProjectDetail() {
             return (
               <div
                 key={memberId}
-                className="flex items-center justify-between p-3 rounded-lg bg-gray-50"
+                className="flex items-center justify-between p-3 rounded-lg bg-gray-50 dark:bg-gray-800"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-medium">
                     {memberUser?.name?.charAt(0).toUpperCase() || '?'}
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-gray-800">
+                    <p className="text-sm font-medium text-gray-800 dark:text-gray-200">
                       {memberUser?.name || 'Unknown'}
                     </p>
-                    <p className="text-xs text-gray-500">{memberUser?.email}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">{memberUser?.email}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <span
                     className={`text-xs px-2 py-1 rounded-full font-medium ${
                       member.role === 'admin'
-                        ? 'bg-purple-100 text-purple-700'
-                        : 'bg-gray-200 text-gray-600'
+                        ? 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400'
+                        : 'bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-300'
                     }`}
                   >
                     {member.role}

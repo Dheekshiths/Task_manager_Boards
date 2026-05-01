@@ -16,21 +16,21 @@ export default function RecentActivity({ activities }) {
       {activities.map((activity) => (
         <div
           key={activity._id}
-          className="flex items-start gap-3 py-2 border-b border-gray-100 last:border-0"
+          className="flex items-start gap-3 py-2 border-b border-gray-100 dark:border-gray-700 last:border-0"
         >
-          <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-xs font-medium text-gray-600 shrink-0">
+          <div className="w-8 h-8 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-xs font-medium text-gray-600 dark:text-gray-300 shrink-0">
             {activity.userId?.name?.charAt(0).toUpperCase() || '?'}
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm text-gray-800">
+            <p className="text-sm text-gray-800 dark:text-gray-200">
               <span className="font-medium">{activity.userId?.name}</span>{' '}
               {activity.action}
               {activity.taskId && (
-                <span className="text-blue-600"> {activity.taskId.title}</span>
+                <span className="text-blue-600 dark:text-blue-400"> {activity.taskId.title}</span>
               )}
             </p>
             {activity.details && (
-              <p className="text-xs text-gray-500 mt-0.5">{activity.details}</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{activity.details}</p>
             )}
             <p className="text-xs text-gray-400 mt-0.5">
               {timeAgo(activity.createdAt)}

@@ -40,9 +40,9 @@ export default function AddMemberModal({ projectId, existingMembers, onClose, on
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-xl shadow-xl w-full max-w-md">
-        <div className="flex items-center justify-between p-4 border-b">
-          <h3 className="text-lg font-semibold">Add Member</h3>
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md">
+        <div className="flex items-center justify-between p-4 border-b dark:border-gray-700">
+          <h3 className="text-lg font-semibold dark:text-white">Add Member</h3>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
             <XMarkIcon className="h-5 w-5" />
           </button>
@@ -67,7 +67,7 @@ export default function AddMemberModal({ projectId, existingMembers, onClose, on
           </div>
 
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700 mb-1">Role</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Role</label>
             <select
               className="input-field"
               value={role}
@@ -86,15 +86,15 @@ export default function AddMemberModal({ projectId, existingMembers, onClose, on
             {results.map((user) => (
               <div
                 key={user._id}
-                className="flex items-center justify-between p-3 rounded-lg border border-gray-100 hover:bg-gray-50"
+                className="flex items-center justify-between p-3 rounded-lg border border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-sm font-medium text-blue-700">
+                  <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-sm font-medium text-blue-700 dark:text-blue-400">
                     {user.name.charAt(0).toUpperCase()}
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-gray-800">{user.name}</p>
-                    <p className="text-xs text-gray-500">{user.email}</p>
+                    <p className="text-sm font-medium text-gray-800 dark:text-gray-200">{user.name}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">{user.email}</p>
                   </div>
                 </div>
                 <button
